@@ -1,4 +1,4 @@
-# Import modules and enable overwrite
+# Import modules
 import sys, os, arcpy
 
 # Allow for user to select a dataset, and then describe the dataset
@@ -18,4 +18,5 @@ for row in search_rows:
     # Determine if point falls within record shape, and print field attributes if so
     if recShape.contains(new_point) == True: 
         field_attribute = row[1]
-        arcpy.AddMessage("The value for {} is {}".format(user_field, field_attribute))
+        arcpy.AddMessage("The point is located within the attribute {} (of the field {}).".format(field_attribute, user_field))
+
